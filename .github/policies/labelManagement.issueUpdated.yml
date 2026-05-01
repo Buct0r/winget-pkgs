@@ -197,6 +197,24 @@ configuration:
           - addLabel:
               label: Needs-Attention # This will automatically assign the ICM Users
       - description: >-
+          If an author agrees to the CLA on a Pull Request
+          * Remove the Needs-CLA Label
+        if:
+          - or:
+              - payloadType: Pull_Request_Review
+              - payloadType: Pull_Request_Review_Comment
+              - payloadType: Issue_Comment
+          - isActivitySender:
+              issueAuthor: True
+          - hasLabel:
+              label: Needs-CLA
+          - commentContains:
+              pattern: '@microsoft-github-policy-service agree'
+              isRegex: False
+        then:
+          - removeLabel:
+              label: Needs-CLA
+      - description: >-
           When changes are requested on a pull request
           * Disable automerge
           * Label with Changes-Requested
@@ -296,6 +314,8 @@ configuration:
           - removeLabel:
               label: Manifest-Version-Error
           - removeLabel:
+              label: Manual-Validation-Completed
+          - removeLabel:
               label: Moderator-Approved
           - removeLabel:
               label: Needs-Attention
@@ -343,6 +363,8 @@ configuration:
               label: URL-Validation-Error
           - removeLabel:
               label: Unexpected-File
+          - removeLabel:
+              label: Validate-Domain-Installer
           - removeLabel:
               label: Validation-Completed
           - removeLabel:
@@ -419,6 +441,7 @@ configuration:
                   user: russellbanks
         then:
           # Don't remove Changes-Requested here because it is just a re-run, no new commits have been added
+          # Don't remove Manual-Validation-Completed here because it is just a re-run, no new commits have been added
           - removeLabel:
               label: Author-Not-Authorized
           - removeLabel:
@@ -478,6 +501,10 @@ configuration:
           - removeLabel:
               label: Needs-SmartScreen-Investigation
           - removeLabel:
+              label: New-Manifest
+          - removeLabel:
+              label: New-Package
+          - removeLabel:
               label: Policy-Test-1.1.A
           - removeLabel:
               label: Policy-Test-1.1.B
@@ -525,6 +552,8 @@ configuration:
               label: Validation-Domain
           - removeLabel:
               label: Validation-Executable-Error
+          - removeLabel:
+              label: Validation-Forbidden-URL-Error
           - removeLabel:
               label: Validation-Hash-Verification-Failed
           - removeLabel:

@@ -294,14 +294,6 @@ configuration:
                 then:
                   - addLabel:
                       label: License-Blocks-Install
-              # Manifest-Content-Incomplete
-              - if:
-                  - commentContains:
-                      pattern: '\[[Pp]olicy\]\s+([Mm]anifest[\s-])?[Cc]ontent[\s-][Ii]ncomplete'
-                      isRegex: True
-                then:
-                  - addLabel:
-                      label: Manifest-Content-Incomplete
               # Manifest-Singleton-Deprecated
               - if:
                   - commentContains:
@@ -431,7 +423,7 @@ configuration:
               # Testing
               - if:
                   - commentContains:
-                      pattern: '\[[Pp]olicy\]\s+[tT]est(ing)?'
+                      pattern: '(?i)\[policy\]\s+test(ing)?'
                       isRegex: True
                 then:
                   - addLabel:
@@ -575,6 +567,8 @@ configuration:
                   - removeLabel:
                       label: Manifest-Version-Deprecated
                   - removeLabel:
+                      label: Manual-Validation-Completed
+                  - removeLabel:
                       label: Moderator-Approved
                   - removeLabel:
                       label: Needs-Attention
@@ -588,6 +582,10 @@ configuration:
                       label: Needs-Review
                   - removeLabel:
                       label: Network-Blocker
+                  - removeLabel:
+                      label: New-Manifest
+                  - removeLabel:
+                      label: New-Package
                   - removeLabel:
                       label: Package-Request
                   - removeLabel:

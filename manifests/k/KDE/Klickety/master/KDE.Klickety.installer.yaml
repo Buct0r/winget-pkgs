@@ -1,5 +1,5 @@
 # Created with YamlCreate.ps1 Dumplings Mod
-# yaml-language-server: $schema=https://aka.ms/winget-manifest.installer.1.10.0.schema.json
+# yaml-language-server: $schema=https://aka.ms/winget-manifest.installer.1.12.0.schema.json
 
 PackageIdentifier: KDE.Klickety
 PackageVersion: master
@@ -9,15 +9,15 @@ ProductCode: klickety
 Installers:
 - Architecture: x64
   Scope: user
-  InstallerUrl: https://cdn.kde.org/ci-builds/games/klickety/master/windows/klickety-master-827-windows-cl-msvc2022-x86_64.exe
-  InstallerSha256: 59634C817F92CE5F4A6FDB7B919C6E3B85645D62BAFC55C6B3C4974BB7EECA4B
+  InstallerUrl: https://cdn.kde.org/ci-builds/games/klickety/master/windows/klickety-master-927-windows-cl-msvc2022-x86_64.exe
+  InstallerSha256: 25E4C693D36B3BA86564A974BC7D415C3979689CA4A179963C6930F54FF19C7F
   InstallerSwitches:
     Custom: /CurrentUser
 - Architecture: x64
   Scope: machine
-  InstallerUrl: https://cdn.kde.org/ci-builds/games/klickety/master/windows/klickety-master-827-windows-cl-msvc2022-x86_64.exe
-  InstallerSha256: 59634C817F92CE5F4A6FDB7B919C6E3B85645D62BAFC55C6B3C4974BB7EECA4B
+  InstallerUrl: https://cdn.kde.org/ci-builds/games/klickety/master/windows/klickety-master-927-windows-cl-msvc2022-x86_64.exe
+  InstallerSha256: 25E4C693D36B3BA86564A974BC7D415C3979689CA4A179963C6930F54FF19C7F
   InstallerSwitches:
     Custom: /AllUsers
 ManifestType: installer
-ManifestVersion: 1.10.0
+ManifestVersion: 1.12.0
